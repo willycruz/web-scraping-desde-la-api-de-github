@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block form %}
+
+<div class="br-search">
+     <form action="/index/" method="get">
+            <div id="ctn-bar-search">
+                <input type="text" id="inputSearch" name="git" placeholder="¿Qué deseas buscar?">
+                <input type="submit" value="Buscar">
+            </div>
+     </form>
+</div>
+{% endblock %}

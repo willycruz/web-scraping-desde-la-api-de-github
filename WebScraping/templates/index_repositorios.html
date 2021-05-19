@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block main %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" />
+	<!--<br>
+	<a class="btn btn-primary" href="{% url 'repositorios:create_user' %}">Nuevo Usuario</a>-->
+	<p align="center" class="text-success fa-2x">Repositorios Scrapeadas</p>
+	<div>
+		<table class="table-details-git"  border="1">
+			<thead>
+				<tr>
+	                <th>Título</th>
+	                <th>Descripción</th>
+					<!--<th># Watch</th>-->
+					<th>Star</th>
+					<th>Fork</th>
+					<th>Fecha Creación</th>
+					<th>Fecha Actualización</th>
+					<th>Commits</th>
+					<th>Colaboradores</th>
+	                <th>Lenguajes</th>
+	                <th>URL Repositorio</th>
+	            </tr>
+            </thead>
+            <tbody>
+				{% for item in repositorio %}
+				   	<tr>
+						<td>{{ item.titulo }}</td>
+						<td>{{ item.descripcion }}</td>
+						<td>{{ item.star }}</td>
+						<td>{{ item.fork }}</td>
+						<td>{{ item.fecha_creacion }}</td>
+						<td>{{ item.fecha_actualizacion }}</td>
+						<!--<td><a href="{{ item.url_commits }}" target="_blank">Ver Commits</a></td>-->
+						<td><a href="{{ item.url_commits }}" target="_blank"><center>Ver Commits</center></a></td>
+
+						<td><a href="{{ item.url_colaboradores }}" target="_blank"><center>Ver Colaboradores</center></a></td>
+						<td><a href="{{ item.url_lenguajes }}" target="_blank"><center>Ver Lenguajes</center></a></td>
+						<td><a href="{{ item.url_repositorio }}" target="_blank"><center>Ver Repositorio</center></a></td>
+
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
